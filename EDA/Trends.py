@@ -11,5 +11,5 @@ def eda(df):
 
     sns.heatmap(numerical_df.corr(method='pearson'), cmap=sns.light_palette('purple'), annot=True, annot_kws={'size':16})
     plt.xticks(rotation=45)
-    plt.savefig('Charts/corr_matrix.png', bbox_inches='tight')
+    #plt.savefig('Charts/corr_matrix.png', bbox_inches='tight')
     plt.show()

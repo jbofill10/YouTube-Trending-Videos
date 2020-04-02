@@ -1,7 +1,8 @@
 import pandas as pd
 import os
 import DataCleaning as data_cleaning
-from EDA import Correlations as correlations
+from EDA import Trends as correlations, Likes as likes
+import json
 
 
 def main():
@@ -25,21 +26,28 @@ def main():
                                    'description'])
         for root, dirs, files in os.walk('Data/youtube-new'):
             for name in files:
-                if '.json' not in name and 'JP' not in name \
-                        and 'KR' not in name and 'MX' not in name and 'RU' not in name:
+                if '.json' not in name and 'USvideos.csv' in name:
                     print(name)
                     print(root + '/' + name)
                     temp = pd.read_csv(root + '/' + name, encoding='utf-8')
-                df = df.append(temp)
+                    df = df.append(temp)
 
         df.to_pickle('Data/pickles/entire_df_pickle')
 
     else:
         df = pd.read_pickle('Data/pickles/entire_df_pickle')
 
+    categories = dict()
+    with open('Data/youtube-new/US_category_id.json') as json_file:
+        data = json.load(json_file)
+        for i in data['items']:
+            categories[i['id']] = i['snippet']['title']
+
     df = data_cleaning.clean_data(df)
 
+    # EDA
     correlations.eda(df)
+    likes.likes_eda(df, categories)
 
 
 if __name__ == '__main__':
