@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import DataCleaning as data_cleaning
-from EDA import Trends as correlations, Likes as likes
+from EDA import Trends as correlations, Likes as likes, Views as views
 import json
 
 
@@ -48,7 +48,7 @@ def main():
     # EDA
     correlations.eda(df)
     likes.likes_eda(df, categories)
-
+    views.eda(df, categories)
 
 if __name__ == '__main__':
     main()

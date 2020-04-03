@@ -18,13 +18,14 @@ def likes_eda(df, categories):
     style.use('seaborn-poster')
 
     # Freq Distr of Likes, Dislikes, Views, and Comment Count (Log)
-    fig, ax = plt.subplots(2,2)
+    fig, ax = plt.subplots(2, 2)
     plt.subplots_adjust(hspace=0.27, top=0.92)
     sns.distplot(log_df['dislikes'], bins=25, ax=ax[0][1], color='r')
     sns.distplot(log_df['likes'], bins=25, ax=ax[0][0], color='g')
     sns.distplot(log_df['views'], bins=25, ax=ax[1][0], color='y')
     sns.distplot(log_df['comment_count'], bins=25, ax=ax[1][1])
-    plt.suptitle('Frequency Distributions of Likes, Dislikes, Views, and Comment Count (Log)', fontsize=20, fontweight='bold')
+    plt.suptitle('Frequency Distributions of Likes, Dislikes, Views, and Comment Count (Log)', fontsize=20,
+                 fontweight='bold')
     plt.savefig('Charts/FrequencyDistrsVideoAttr.png', bbox_inches='tight')
     plt.show()
 
@@ -37,7 +38,7 @@ def likes_eda(df, categories):
         width = p.get_width()
         ax.text(width + 69999990,
                 p.get_y() + p.get_height() / 2. + .1,
-                np.format_float_scientific(int(width), precision=1 ,exp_digits=2),
+                np.format_float_scientific(int(width), precision=1, exp_digits=2),
                 ha="center", fontsize=14)
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
@@ -46,7 +47,6 @@ def likes_eda(df, categories):
     plt.xlabel('Likes', fontweight='bold')
     plt.savefig('Charts/CategoriesLikes.png', bbox_inches='tight')
     plt.show()
-
 
     # Like Distr over categories
     unique_id = list(log_df['category_id'].unique())

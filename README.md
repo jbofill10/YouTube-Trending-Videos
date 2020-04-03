@@ -22,6 +22,19 @@ I was surprised in seeing that Gaming wasn't higher up on the list.
   
 It's interesting to see what video types usually do well. All of the videos under the 'Shows' category have a high amount of likes and are usually consistent in the amount of likes they receive. 
 
+
+## Looking at Data on Views
+
+### Views and Categories
+![image](Charts/CategoriesViews.png)
+
+Interesting to me that some videos in a less popular category will have a better view to like ratio than others. For example, People & Blog videos get a better view to like ratio than a category like Film & Animation despite getting 3 million more views total.
+
+### View Distribution in Categories
+![image](Charts/ViewsInCategory.png)
+
+I still find it very interesting that the Shows category has a very consistent viewership count. I also find it interesting that comedy has the trending video with the highest views in comparison to a category like Music.
+
 ## Correlations
 
 Considering the first task I have in mind is to predict likes, that is going to require some sort of regression model.
