@@ -35,6 +35,15 @@ Interesting to me that some videos in a less popular category will have a better
 
 I still find it very interesting that the Shows category has a very consistent viewership count. I also find it interesting that comedy has the trending video with the highest views in comparison to a category like Music.
 
+
+## Comment Data
+![image](Charts/CategoriesComments.png)
+
+Kind of expected the order of the categories to be the same as the previous ones. Although it is clear there is a linear trend between comments, likes, and views.
+
+![image](Charts/CommentsInCat.png)
+It's weird that there are a lot of outliers towards the lower end of comments, but hardly any outliers on the higher end of the comment count scale.
+
 ## Correlations
 
 Considering the first task I have in mind is to predict likes, that is going to require some sort of regression model.

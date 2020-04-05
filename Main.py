@@ -1,7 +1,8 @@
 import pandas as pd
 import os
 import DataCleaning as data_cleaning
-from EDA import Trends as correlations, Likes as likes, Views as views
+from machine_learning import index as index
+from EDA import EDAIndex as eda_index
 import json
 
 
@@ -46,9 +47,9 @@ def main():
     df = data_cleaning.clean_data(df)
 
     # EDA
-    correlations.eda(df)
-    likes.likes_eda(df, categories)
-    views.eda(df, categories)
+    eda_index.init_eda(df, categories)
+
+    #index.run(df)
 
 if __name__ == '__main__':
     main()

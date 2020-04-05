@@ -30,10 +30,9 @@ def likes_eda(df, categories):
     plt.show()
 
     # Categories with like count
-    fig, ax = plt.subplots()
     categories_and_likes = df.groupby(['category_id'])['likes'].sum().sort_values(ascending=False)
 
-    ax = sns.barplot(y=[categories[str(i)] for i in categories_and_likes.index], x=categories_and_likes.values)
+    ax = sns.barplot(y=[categories[str(i)] for i in categories_and_likes.index], x=categories_and_likes.values, ec='Black')
     for p in ax.patches:
         width = p.get_width()
         ax.text(width + 69999990,
