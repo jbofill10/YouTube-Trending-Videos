@@ -1,5 +1,5 @@
 # Description
-- I have a data set of 800,000 records that contains information on YouTube videos.
+- I have a data subset of 40,000 records from a data set of 800,0000 records that contains information on YouTube videos.
 - This information ranges from the title, publishing date, views, comment count, likes, dislikes, and more.
 - I will try to use the given features to predict attributes such as likes.
 
