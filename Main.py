@@ -47,9 +47,9 @@ def main():
     df = data_cleaning.clean_data(df)
 
     # EDA
-    eda_index.init_eda(df, categories)
+    #eda_index.init_eda(df, categories)
 
-    #index.run(df)
+    index.run(df)
 
 if __name__ == '__main__':
     main()
