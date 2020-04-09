@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 
 def run(df):
-    X = df[['comment_count', 'dislikes', 'views']]
+    X = df[['comment_count', 'dislikes', 'views', 'comments_disabled', 'ratings_disabled']]
     Y = df['likes']
 
     regular_linear_regression(X,Y)
@@ -20,4 +20,7 @@ def regular_linear_regression(x,y):
     x_test = scalar.transform(x_test)
     lin_regressor.fit(x_train, y_train)
     y_pred = lin_regressor.predict(x_test)
-    print(mean_squared_error(y_test, y_pred))
+
+    y_result = mean_squared_error(y_test, y_pred)
+    
+    print(y_result)

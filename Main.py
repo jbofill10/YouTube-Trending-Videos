@@ -3,6 +3,8 @@ import os
 import DataCleaning as data_cleaning
 from machine_learning import index as index
 from EDA import EDAIndex as eda_index
+from machine_learning import Preprocessing as preprocessing
+
 import json
 
 
@@ -49,7 +51,9 @@ def main():
     # EDA
     #eda_index.init_eda(df, categories)
 
-    index.run(df)
+    log_df = preprocessing.preprocess(df)
+
+    index.run(log_df)
 
 if __name__ == '__main__':
     main()
