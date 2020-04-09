@@ -59,3 +59,24 @@ Initially, it was my prediction that comment count would correlate the strongest
 I noticed that comment_count has some slight correlation with dislikes and views. I don't think that dislikes and views would be accurate enough in predicting comment count, so multicollinearity is not an issue at the moment.
 
 
+# Predictive Modeling
+Here I will use different machine learning algorithms to predict different attributes of a video  
+Due to how the data was very spread out, I used the Log conversions of the different features in my data frame.  
+The standard procedure I will be following for the models except the basic linear regression is 
+## Predicting Likes
+
+First I will try just straight linear regression to get a base value to see how the other models differ
+
+### Linear Regression
+The features I chose were views, dislikes, comments_disabled, comment_count, and ratings_disabled  
+
+![image](model_results/LinearRegression.png)  
+So on average, the model is off by about 76227 likes. This is pretty good actually.  
+I expected this to be the case because the features I was using showed a strong correlation with the target label in the correlation matrix shown earlier.
+
+### Ridge Regression
+I decided to use Ridge Regression next because from observing the correlation matrix, I was worried that there could be some slight multicollinearity (comment_count, dislikes, views)
+I did a Grid Search of alpha values from 0.01 to 10.0 with k-fold cross validation of k = 5.  
+
+![image](model_results/RidgeRegression.png)  
+So the results actually improved, but only by around 1000 likes. Still a significant improvement though.
