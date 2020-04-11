@@ -90,5 +90,4 @@ This is really interesting because I have improved my predictions by about ~12,0
 ### ElasticNet Regression
 I followed the same param tuning procedures as I did for the previous algorithms.  
 ![image](model_results/ElasticNetRegression.png)  
-
 It seems that the results did not improve from Lasso Regression.
