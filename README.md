@@ -88,6 +88,7 @@ I did a Grid Search of alpha values from 0.01 to 20.0 with k-fold cross validati
 This is really interesting because I have improved my predictions by about ~12,000 likes. I believe this is the case because some of my feature variables that didn't correlation much were penalized by the Lasso Regression algorithm.
 
 ### ElasticNet Regression
-I followed the same param tuning procedures as I did for the previous algorithms.
+I followed the same param tuning procedures as I did for the previous algorithms.  
 ![image](model_results/ElasticNetRegression.png)  
+
 It seems that the results did not improve from Lasso Regression.
