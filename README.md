@@ -76,7 +76,18 @@ I expected this to be the case because the features I was using showed a strong 
 
 ### Ridge Regression
 I decided to use Ridge Regression next because from observing the correlation matrix, I was worried that there could be some slight multicollinearity (comment_count, dislikes, views)
-I did a Grid Search of alpha values from 0.01 to 10.0 with k-fold cross validation of k = 5.  
+I did a Grid Search of alpha values from 0.01 to 20.0 with k-fold cross validation of k = 5.  
 
 ![image](model_results/RidgeRegression.png)  
 So the results actually improved, but only by around 1000 likes. Still a significant improvement though.
+
+### Lasso Regression
+Some of the features in the correlation matrix did not seem to matter much, so I thought about using Lasso Regression to see if that would improve my predictions
+I did a Grid Search of alpha values from 0.01 to 20.0 with k-fold cross validation of k = 5.  
+![image](model_results/LassoRegression.png)  
+This is really interesting because I have improved my predictions by about ~12,000 likes. I believe this is the case because some of my feature variables that didn't correlation much were penalized by the Lasso Regression algorithm.
+
+### ElasticNet Regression
+I followed the same param tuning procedures as I did for the previous algorithms.
+![image](model_results/ElasticNetRegression.png)  
+It seems that the results did not improve from Lasso Regression.
