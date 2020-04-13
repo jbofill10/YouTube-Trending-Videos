@@ -3,7 +3,6 @@ import os
 import DataCleaning as data_cleaning
 from machine_learning import index as index
 from EDA import EDAIndex as eda_index
-from machine_learning import Preprocessing as preprocessing
 
 import json
 
@@ -41,19 +40,20 @@ def main():
         df = pd.read_pickle('Data/pickles/entire_df_pickle')
 
     categories = dict()
+    categories_reset_index = dict()
+    counter = 0
     with open('Data/youtube-new/US_category_id.json') as json_file:
         data = json.load(json_file)
         for i in data['items']:
             categories[i['id']] = i['snippet']['title']
 
+            if counter not in categories_reset_index.values():
+                categories_reset_index[int(i['id'])] = counter
+                counter += 1
+
     df = data_cleaning.clean_data(df)
 
-    # EDA
-    #eda_index.init_eda(df, categories)
-
-    log_df = preprocessing.preprocess(df)
-
-    index.run(log_df)
+    index.run(df, categories_reset_index)
 
 if __name__ == '__main__':
     main()
